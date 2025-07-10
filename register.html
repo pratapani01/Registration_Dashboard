@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+  <script src="https://kit.fontawesome.com/a2e0e6ad69.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>📝 User Registration</h2>
+
+    <form id="registrationForm">
+      <!-- Profile Picture -->
+      <div class="form-box">
+        <label>Profile Picture</label>
+        <input type="file" id="profilePic" accept="image/*" />
+        <img id="previewPic" src="profile.png" alt="Preview" class="preview-img" />
+      </div>
+
+      <input type="text" id="fullName" placeholder="Full Name" required />
+
+      <input type="email" id="email" placeholder="Email" required />
+
+      <!-- Password Fields -->
+      <div class="password-box">
+        <input type="password" id="password" placeholder="Password" required />
+        <i class="fas fa-eye toggle-password" toggle="#password"></i>
+      </div>
+
+      <div class="password-box">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+        <i class="fas fa-eye toggle-password" toggle="#confirmPassword"></i>
+      </div>
+
+      <input type="text" id="phone" placeholder="Phone Number" maxlength="10" required />
+
+      <!-- Gender -->
+      <div class="form-box">
+        <label>Gender</label>
+        <div class="column-group">
+          <label><input type="radio" name="gender" value="Male" required> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <!-- DOB -->
+      <div class="form-box">
+        <label>Date of Birth</label>
+        <input type="text" id="dob" placeholder="Select your DOB" required />
+        <p id="dobError" class="error"></p>
+      </div>
+
+      <textarea id="address" placeholder="Address" required></textarea>
+
+      <!-- Location -->
+      <select id="state" required>
+        <option value="">Select State</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Delhi">Delhi</option>
+      </select>
+      <select id="district" required><option value="">Select District</option></select>
+      <select id="city" required><option value="">Select City</option></select>
+
+      <!-- Skills -->
+      <div class="form-box">
+        <label>Skills</label>
+        <div class="column-group">
+          <label><input type="checkbox" value="HTML"> HTML</label>
+          <label><input type="checkbox" value="CSS"> CSS</label>
+          <label><input type="checkbox" value="JavaScript"> JavaScript</label>
+          <label><input type="checkbox" value="Python"> Python</label>
+          <label><input type="checkbox" value="React"> React</label>
+          <label><input type="checkbox" value="Node.js"> Node.js</label>
+        </div>
+      </div>
+
+      <label><input type="checkbox" id="terms" /> I accept the terms and conditions</label>
+
+      <p id="alreadyExists" class="error" style="margin-top: 10px;"></p>
+
+      <button type="submit" class="glow-button">Register</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

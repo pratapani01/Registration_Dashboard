@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a2e0e6ad69.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>🔐 User Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <div class="password-box">
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <i class="fas fa-eye toggle-password" toggle="#loginPassword"></i>
+      </div>
+      <button type="submit" class="glow-button">Login</button>
+      <p id="loginError" class="error"></p>
+    </form>
+    <p style="text-align:center; margin-top:15px;">
+      New user? <a href="register.html" style="color:#2196F3; font-weight:600;">Register here</a>
+    </p>
+  </div>
+
+  <script>
+    document.querySelectorAll(".toggle-password").forEach(icon => {
+      icon.addEventListener("click", () => {
+        const input = document.querySelector(icon.getAttribute("toggle"));
+        const type = input.type === "password" ? "text" : "password";
+        input.type = type;
+        icon.classList.toggle("fa-eye");
+        icon.classList.toggle("fa-eye-slash");
+      });
+    });
+
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = loginEmail.value;
+      const password = loginPassword.value;
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      if (storedUser && storedUser.email === email && storedUser.password === password) {
+        sessionStorage.setItem("loggedIn", true);
+        window.location.href = "dashboard.html";
+      } else {
+        loginError.textContent = "❌ Invalid email or password.";
+      }
+    });
+  </script>
+</body>
+</html>

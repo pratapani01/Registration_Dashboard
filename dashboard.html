@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a2e0e6ad69.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Top Horizontal Navbar -->
+  <header class="navbar">
+    <h1>My Dashboard</h1>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </header>
+
+  <!-- Main Dashboard Content Centered -->
+  <div class="dashboard-center">
+    <div class="profile-card">
+      <img id="profileImg" src="profile.png" alt="Profile" />
+      <h3 id="userName">User Name</h3>
+      <p id="userEmail">Email@example.com</p>
+    </div>
+
+    <div class="info-card">
+      <h3>👋 Welcome back!</h3>
+      <p><strong>Phone:</strong> <span id="userPhone"></span></p>
+      <p><strong>Gender:</strong> <span id="userGender"></span></p>
+      <p><strong>Date of Birth:</strong> <span id="userDob"></span></p>
+      <p><strong>Address:</strong> <span id="userAddress"></span></p>
+      <p><strong>Location:</strong> <span id="userLocation"></span></p>
+      <p><strong>Skills:</strong> <span id="userSkills"></span></p>
+    </div>
+  </div>
+
+  <script>
+    if (!sessionStorage.getItem("loggedIn")) {
+      window.location.href = "login.html";
+    }
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    document.getElementById("profileImg").src = user.profilePic;
+    document.getElementById("userName").textContent = user.fullName;
+    document.getElementById("userEmail").textContent = user.email;
+    document.getElementById("userPhone").textContent = user.phone;
+    document.getElementById("userGender").textContent = user.gender;
+    document.getElementById("userDob").textContent = user.dob;
+    document.getElementById("userAddress").textContent = user.address;
+    document.getElementById("userLocation").textContent = `${user.city}, ${user.district}, ${user.state}`;
+    document.getElementById("userSkills").textContent = user.skills.join(", ");
+
+    function logout() {
+      sessionStorage.removeItem("loggedIn");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
