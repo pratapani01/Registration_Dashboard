@@ -9,7 +9,7 @@ document.querySelectorAll(".toggle-password").forEach((icon) => {
   });
 });
 
-// 📷 Profile Image Preview
+
 const profileInput = document.getElementById("profilePic");
 const previewImg = document.getElementById("previewPic");
 
@@ -27,7 +27,7 @@ if (profileInput && previewImg) {
   });
 }
 
-// 📆 Flatpickr DOB
+
 if (document.getElementById("dob")) {
   flatpickr("#dob", {
     dateFormat: "Y-m-d",
@@ -53,7 +53,7 @@ if (document.getElementById("dob")) {
   });
 }
 
-// 🌍 Dynamic Location Dropdown
+
 const locationData = {
   "Uttar Pradesh": {
     "Ghazipur": ["Gahmar", "Zamania"],
@@ -92,7 +92,7 @@ if (stateSelect && districtSelect && citySelect) {
   });
 }
 
-// ✅ REGISTER.HTML SAFE REDIRECT: Only if logged in + user exists
+
 if (window.location.pathname.includes("register.html")) {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const isLoggedIn = sessionStorage.getItem("loggedIn");
@@ -102,8 +102,7 @@ if (window.location.pathname.includes("register.html")) {
   }
 }
 
-// 📝 Registration Submit
-// 📝 Registration Submit
+
 const form = document.getElementById("registrationForm");
 if (form) {
   form.addEventListener("submit", function (e) {
@@ -119,7 +118,7 @@ if (form) {
       return;
     }
 
-    // Proceed with new registration
+    
     const fullName = document.getElementById("fullName").value.trim();
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;

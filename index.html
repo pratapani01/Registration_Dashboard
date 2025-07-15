@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Register</title>
+
+  
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
   <script src="https://kit.fontawesome.com/a2e0e6ad69.js" crossorigin="anonymous"></script>
@@ -11,26 +13,25 @@
 </head>
 <body>
   <div class="container">
-    <h2>📝 User Registration</h2>
+    <h2>User Registration</h2>
 
     <form id="registrationForm">
-      <!-- Profile Picture -->
+      
       <div class="form-box">
         <label>Profile Picture</label>
         <input type="file" id="profilePic" accept="image/*" />
         <img id="previewPic" src="profile.png" alt="Preview" class="preview-img" />
       </div>
 
+      
       <input type="text" id="fullName" placeholder="Full Name" required />
-
       <input type="email" id="email" placeholder="Email" required />
 
-      <!-- Password Fields -->
+      
       <div class="password-box">
         <input type="password" id="password" placeholder="Password" required />
         <i class="fas fa-eye toggle-password" toggle="#password"></i>
       </div>
-
       <div class="password-box">
         <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
         <i class="fas fa-eye toggle-password" toggle="#confirmPassword"></i>
@@ -38,7 +39,7 @@
 
       <input type="text" id="phone" placeholder="Phone Number" maxlength="10" required />
 
-      <!-- Gender -->
+      
       <div class="form-box">
         <label>Gender</label>
         <div class="column-group">
@@ -48,7 +49,7 @@
         </div>
       </div>
 
-      <!-- DOB -->
+      
       <div class="form-box">
         <label>Date of Birth</label>
         <input type="text" id="dob" placeholder="Select your DOB" required />
@@ -57,7 +58,7 @@
 
       <textarea id="address" placeholder="Address" required></textarea>
 
-      <!-- Location -->
+      
       <select id="state" required>
         <option value="">Select State</option>
         <option value="Uttar Pradesh">Uttar Pradesh</option>
@@ -67,7 +68,7 @@
       <select id="district" required><option value="">Select District</option></select>
       <select id="city" required><option value="">Select City</option></select>
 
-      <!-- Skills -->
+      
       <div class="form-box">
         <label>Skills</label>
         <div class="column-group">
@@ -82,9 +83,16 @@
 
       <label><input type="checkbox" id="terms" /> I accept the terms and conditions</label>
 
-      <p id="alreadyExists" class="error" style="margin-top: 10px;"></p>
+      <p id="alreadyExists" class="error" style="margin-top:10px;"></p>
 
+      
       <button type="submit" class="glow-button">Register</button>
+
+      
+      <p class="footer-link" style="margin-top:12px;">
+        Already registered?
+        <a href="login.html">Login</a>
+      </p>
     </form>
   </div>
 
